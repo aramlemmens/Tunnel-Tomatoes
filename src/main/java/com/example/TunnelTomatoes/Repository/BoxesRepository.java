@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 @Repository
-public interface BoxesRepository extends JpaRepository<Boxes, Long> {
-    Optional<Boxes> findByTitel(String url);
+public interface BoxesRepository extends JpaRepository<Boxes, Integer> {
+
+//    List<Boxes> findByBoxidContaining(int id);
+
+    Optional<Boxes> findByBoxid(int url);
 }

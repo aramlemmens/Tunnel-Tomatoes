@@ -14,22 +14,32 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/boxes")
 public class BoxesController {
 
-    private BoxesService boxesService;
-
     @Autowired
-    public BoxesController(BoxesService boxesService){
-        this.boxesService = boxesService;
+    private BoxesRepository boxesRepository;
+
+    public BoxesController(BoxesRepository boxesRepository){
+        this.boxesRepository = boxesRepository;
     }
 
     @GetMapping(path = "/")
-    public String listBoxes(Model model){
-        List<BoxesDto> boxes = boxesService.findallboxes();
-        model.addAttribute("boxes", boxes);
-        return "boxes-list";
+    public List<Boxes> getBoxes(){
+        return boxesRepository.findAll();
     }
+//    private BoxesService boxesService;
+//
+//    @Autowired
+//    public BoxesController(BoxesService boxesService){
+//        this.boxesService = boxesService;
+//    }
+//
+//    @GetMapping(path = "/")
+//    public String listBoxes(Model model){
+//        List<BoxesDto> boxes = boxesService.findallboxes();
+//        model.addAttribute("boxes", boxes);
+//        return "boxes-list";
+//    }
 
 
 }
