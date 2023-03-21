@@ -16,25 +16,23 @@ public class BoxesDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int boxid;
+    private String boxid;
     private String plaats;
-    private String kas;
 
-    public BoxesDto(int boxid, String plaats, String kas) {
+    public BoxesDto(String boxid, String plaats) {
         this.boxid = boxid;
         this.plaats = plaats;
-        this.kas = kas;
     }
 
     public BoxesDto() {
 
     }
 
-    public int getBoxid() {
+    public String getBoxid() {
         return boxid;
     }
 
-    public void setBoxid(int boxid) {
+    public void setBoxid(String boxid) {
         this.boxid = boxid;
     }
 
@@ -46,24 +44,17 @@ public class BoxesDto {
         this.plaats = plaats;
     }
 
-    public String getKas() {
-        return kas;
-    }
-
-    public void setKas(String kas) {
-        this.kas = kas;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BoxesDto boxesDto = (BoxesDto) o;
-        return boxid == boxesDto.boxid && Objects.equals(plaats, boxesDto.plaats) && Objects.equals(kas, boxesDto.kas);
+        return boxid == boxesDto.boxid && Objects.equals(plaats, boxesDto.plaats);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(boxid, plaats, kas);
+        return Objects.hash(boxid, plaats);
     }
 }

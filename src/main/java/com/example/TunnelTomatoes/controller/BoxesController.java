@@ -24,7 +24,7 @@ public class BoxesController {
     }
 
     @GetMapping(path = "/")
-    public List<Boxes> getBoxes(){
+    public List<Boxes> getBoxesDto(){
         return boxesRepository.findAll();
     }
 //    private BoxesService boxesService;

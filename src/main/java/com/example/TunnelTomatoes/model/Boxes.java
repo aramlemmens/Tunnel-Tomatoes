@@ -10,24 +10,24 @@ public class Boxes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int boxid;
+    private String boxid;
     private String plaats;
     private String kas;
 
     public Boxes(){
 
     }
-    public Boxes(int id, String plaats, String kas){
+    public Boxes(String id, String plaats, String kas){
         this.setBoxid(id);
         this.setPlaats(plaats);
         this.setKas(kas);
     }
 
-    public int getBoxid() {
+    public String getBoxid() {
         return boxid;
     }
 
-    public void setBoxid(int boxid) {
+    public void setBoxid(String boxid) {
         this.boxid = boxid;
     }
 

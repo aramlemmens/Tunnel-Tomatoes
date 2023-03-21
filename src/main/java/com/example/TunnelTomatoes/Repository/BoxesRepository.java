@@ -11,5 +11,5 @@ public interface BoxesRepository extends JpaRepository<Boxes, Integer> {
 
 //    List<Boxes> findByBoxidContaining(int id);
 
-    Optional<Boxes> findByBoxid(int url);
+    Optional<Boxes> findByBoxid(String url);
 }

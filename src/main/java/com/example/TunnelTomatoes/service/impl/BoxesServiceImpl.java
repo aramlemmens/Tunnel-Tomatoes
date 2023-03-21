@@ -27,7 +27,6 @@ public class BoxesServiceImpl implements BoxesService {
         BoxesDto boxesDto = BoxesDto.builder()
                 .boxid(boxes.getBoxid())
                 .plaats(boxes.getPlaats())
-                .kas(boxes.getKas())
                 .build();
         return boxesDto;
     }
