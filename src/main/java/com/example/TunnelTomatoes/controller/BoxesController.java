@@ -1,6 +1,5 @@
 package com.example.TunnelTomatoes.controller;
 
-import com.example.TunnelTomatoes.DTO.BoxesDto;
 import com.example.TunnelTomatoes.Repository.BoxesRepository;
 import com.example.TunnelTomatoes.model.Boxes;
 import com.example.TunnelTomatoes.service.BoxesService;
@@ -23,8 +22,8 @@ public class BoxesController {
         this.boxesRepository = boxesRepository;
     }
 
-    @GetMapping(path = "/")
-    public List<Boxes> getBoxesDto(){
+    @GetMapping(path = "/Boxes")
+    public List<Boxes> getBoxes(){
         return boxesRepository.findAll();
     }
 //    private BoxesService boxesService;

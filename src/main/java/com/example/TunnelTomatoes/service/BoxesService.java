@@ -1,11 +1,8 @@
 package com.example.TunnelTomatoes.service;
 
-import com.example.TunnelTomatoes.DTO.BoxesDto;
-import org.springframework.stereotype.Service;
-
+import com.example.TunnelTomatoes.model.Boxes;
 import java.util.List;
 
-
 public interface BoxesService {
-    List<BoxesDto> findallboxes();
+    List<Boxes> findallboxes();
 }

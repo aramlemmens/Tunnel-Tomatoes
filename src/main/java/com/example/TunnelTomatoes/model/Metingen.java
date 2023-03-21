@@ -1,11 +1,34 @@
 package com.example.TunnelTomatoes.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Builder;
+
+import java.sql.Date;
+
+@Entity
+@Builder
 public class Metingen {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String boxid;
     private int sensorid;
-    private int tijd;
+    private Date tijd;
     private int waarde;
+
+    public Metingen(String boxid, int sensorid, Date tijd, int waarde){
+        this.setBoxid(boxid);
+        this.setSensorid(sensorid);
+        this.setTijd(tijd);
+        this.setWaarde(waarde);
+    }
+
+    public Metingen() {
+
+    }
 
     public String getBoxid() {
         return boxid;
@@ -23,11 +46,11 @@ public class Metingen {
         this.sensorid = sensorid;
     }
 
-    public int getTijd() {
+    public Date getTijd() {
         return tijd;
     }
 
-    public void setTijd(int tijd) {
+    public void setTijd(Date tijd) {
         this.tijd = tijd;
     }
 

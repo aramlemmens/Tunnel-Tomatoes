@@ -1,11 +1,31 @@
 package com.example.TunnelTomatoes.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Builder;
+@Entity
+@Builder
 public class Sensoren {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int sensorid;
     private String boxid;
     private String soort;
     private String eenheid;
+
+    public Sensoren(int sensorid, String boxid, String soort, String eenheid) {
+        this.setSensorid(sensorid);
+        this.setBoxid(boxid);
+        this.setSoort(soort);
+        this.setEenheid(eenheid);
+    }
+
+    public Sensoren() {
+
+    }
 
     public int getSensorid() {
         return sensorid;
