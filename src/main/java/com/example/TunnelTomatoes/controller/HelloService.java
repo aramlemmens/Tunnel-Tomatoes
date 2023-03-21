@@ -1,19 +1,17 @@
-//package com.example.TunnelTomatoes.controller;
-//
-//import org.springframework.web.bind.annotation.*;
-//
-//
-//@RestController
-//
-//public class HelloService {
-//    @GetMapping(path = "/")
-//    public String hello(){
-//        return "hello";
-//    }
-//    @PostMapping(path = "/process", produces = "text/plain")
-//    public String process(@RequestBody String payload) throws Exception {
-//        System.out.println(payload);
-//        return "200";
-//    }
-//
-//}
+package com.example.TunnelTomatoes.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+
+@Controller
+public class HelloService {
+    @GetMapping(value = "/thymeleafTemplate")
+    public String getTemplate(@RequestParam(name="name", required = false, defaultValue = "World")
+                              String name, Model model){
+        model.addAttribute("name", name);
+        return "boxes-list";
+    }
+
+}

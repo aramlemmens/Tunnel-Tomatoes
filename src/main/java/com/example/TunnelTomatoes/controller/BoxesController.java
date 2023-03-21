@@ -5,9 +5,11 @@ import com.example.TunnelTomatoes.model.Boxes;
 import com.example.TunnelTomatoes.service.BoxesService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,19 +28,5 @@ public class BoxesController {
     public List<Boxes> getBoxes(){
         return boxesRepository.findAll();
     }
-//    private BoxesService boxesService;
-//
-//    @Autowired
-//    public BoxesController(BoxesService boxesService){
-//        this.boxesService = boxesService;
-//    }
-//
-//    @GetMapping(path = "/")
-//    public String listBoxes(Model model){
-//        List<BoxesDto> boxes = boxesService.findallboxes();
-//        model.addAttribute("boxes", boxes);
-//        return "boxes-list";
-//    }
-
 
 }
