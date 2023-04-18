@@ -1,12 +1,71 @@
 <!DOCTYPE html>
 <html xmlns:th="http:www.thymeleaf.rog">
 <head>
-    <meta http-equiv="Content-Type" content="text/html: charset=UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Line Graph</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-      <p th:text="'Hello, ' + ${name} + '!'"/>
-      <h4>Welcome to the internet</h4>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="index.html">Tunnel Tomatoes</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Boxestest">Graph</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Hallotest">setpoints</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--<div th:text="${boxid}"></div>-->
+<!--      <table class="table table-bordered" width="100%" id="boxesdataTable" cellspacing="0">-->
+<!--          <thead>-->
+<!--          <tr>-->
+<!--              <th>boxid</th>-->
+<!--              <th>plaats</th>-->
+<!--&lt;!&ndash;              <th>kas</th>&ndash;&gt;-->
+<!--          </tr>-->
+<!--          </thead>-->
+<!--          <tbody>-->
+<!--          <tr th:each="boxes : ${list}">-->
+<!--              <td th:text="${boxes.boxid}"></td>-->
+<!--              <td th:text="${boxes.plaats}"></td>-->
+<!--&lt;!&ndash;              <td th:text="${boxes.kas}"></td>&ndash;&gt;-->
+<!--          </tr>-->
+<!--          </tbody>-->
+<!--      </table>-->
+<!--<div th:text="${boxid}"></div>-->
 
+<div th:text="${sensorid}"></div>
+<table class="table table-bordered" width="100%" id="sensordataTable" cellspacing="0">
+    <thead>
+    <tr>
+        <th>sensorid</th>
+        <th>boxid</th>
+        <th>soort</th>
+        <th>eenheid</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="sensor : ${list}">
+        <td th:text="${sensor.sensorid}"></td>
+        <td th:text="${sensor.boxid}"></td>
+        <td th:text="${sensor.soort}"></td>
+        <td th:text="${sensor.eenheid}"></td>
+    </tr>
+    </tbody>
+</table>
+<div th:text="${sensorid}"></div>
 </body>
 </html>
+
