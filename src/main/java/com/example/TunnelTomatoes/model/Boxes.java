@@ -1,13 +1,13 @@
 package com.example.TunnelTomatoes.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Builder;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
-@Builder
+@Table(name = "Boxes")
 public class Boxes {
 
     @Id
@@ -15,6 +15,12 @@ public class Boxes {
     private String boxid;
     private String plaats;
     private String kas;
+
+    @OneToMany(mappedBy = "box", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Sensoren> boxes;
+
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "Boxes")
+//    private List<Sensoren> sensoren;
 
     public Boxes(){
 
@@ -50,12 +56,14 @@ public class Boxes {
     }
 
 
-    @Override
-    public String toString() {
-        return "Boxes{" + "boxid=" + boxid +
-                ", plaats='" + plaats +
-                ", kas='" + kas +
-        '}';
-    }
+
+
+//    @Override
+//    public String toString() {
+//        return "Boxes{" + "boxid=" + boxid +
+//                ", plaats='" + plaats +
+//                ", kas='" + kas +
+//        '}';
+//    }
 
 }

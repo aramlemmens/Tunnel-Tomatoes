@@ -5,5 +5,5 @@ import com.example.TunnelTomatoes.model.Metingen;
 import java.util.List;
 
 public interface MetingenService {
-    List<Metingen> findallMetingen();
+    List<Metingen> findAll();
 }

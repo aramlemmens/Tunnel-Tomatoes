@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface SensorenService {
 
-    List<Sensoren> findallSensoren();
+    List<Sensoren> findAll();
 }

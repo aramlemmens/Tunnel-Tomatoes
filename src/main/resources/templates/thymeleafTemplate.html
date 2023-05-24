@@ -27,45 +27,45 @@
         </div>
     </div>
 </nav>
-<!--<div th:text="${boxid}"></div>-->
-<!--      <table class="table table-bordered" width="100%" id="boxesdataTable" cellspacing="0">-->
-<!--          <thead>-->
-<!--          <tr>-->
-<!--              <th>boxid</th>-->
-<!--              <th>plaats</th>-->
-<!--&lt;!&ndash;              <th>kas</th>&ndash;&gt;-->
-<!--          </tr>-->
-<!--          </thead>-->
-<!--          <tbody>-->
-<!--          <tr th:each="boxes : ${list}">-->
-<!--              <td th:text="${boxes.boxid}"></td>-->
-<!--              <td th:text="${boxes.plaats}"></td>-->
-<!--&lt;!&ndash;              <td th:text="${boxes.kas}"></td>&ndash;&gt;-->
-<!--          </tr>-->
-<!--          </tbody>-->
-<!--      </table>-->
-<!--<div th:text="${boxid}"></div>-->
+<div th:text="${boxid}"></div>
+      <table class="table table-bordered" width="100%" id="boxesdataTable" cellspacing="0">
+          <thead>
+          <tr>
+              <th>boxid</th>
+              <th>plaats</th>
+              <th>kas</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="boxes : ${list}">
+              <td th:text="${boxes.boxid}"></td>
+              <td th:text="${boxes.plaats}"></td>
+              <td th:text="${boxes.kas}"></td>
+          </tr>
+          </tbody>
+      </table>
+<div th:text="${boxid}"></div>
 
-<div th:text="${sensorid}"></div>
-<table class="table table-bordered" width="100%" id="sensordataTable" cellspacing="0">
-    <thead>
-    <tr>
-        <th>sensorid</th>
-        <th>boxid</th>
-        <th>soort</th>
-        <th>eenheid</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="sensor : ${list}">
-        <td th:text="${sensor.sensorid}"></td>
-        <td th:text="${sensor.boxid}"></td>
-        <td th:text="${sensor.soort}"></td>
-        <td th:text="${sensor.eenheid}"></td>
-    </tr>
-    </tbody>
-</table>
-<div th:text="${sensorid}"></div>
+<!--<div th:text="${sensorid}"></div>-->
+<!--<table class="table table-bordered" width="100%" id="sensordataTable" cellspacing="0">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>sensorid</th>-->
+<!--        <th>boxid</th>-->
+<!--        <th>soort</th>-->
+<!--        <th>eenheid</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="sensor : ${list}">-->
+<!--        <td th:text="${sensor.sensorid}"></td>-->
+<!--        <td th:text="${sensor.boxid}"></td>-->
+<!--        <td th:text="${sensor.soort}"></td>-->
+<!--        <td th:text="${sensor.eenheid}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--<div th:text="${sensorid}"></div>-->
 </body>
 </html>
 

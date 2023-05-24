@@ -1,22 +1,23 @@
 package com.example.TunnelTomatoes.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Builder;
+import jakarta.persistence.*;
 @Entity
-@Builder
+@Table(name = "Sensoren")
 public class Sensoren {
 
     @Id
+    @Column(name = "sensorid")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int sensorid;
-    private String boxid;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "boxid", nullable = false)
+    private Boxes boxid;
+
     private String soort;
     private String eenheid;
 
-    public Sensoren(int sensorid, String boxid, String soort, String eenheid) {
+    public Sensoren(int sensorid, Boxes boxid, String soort, String eenheid) {
         this.setSensorid(sensorid);
         this.setBoxid(boxid);
         this.setSoort(soort);
@@ -35,11 +36,11 @@ public class Sensoren {
         this.sensorid = sensorid;
     }
 
-    public String getBoxid() {
+    public Boxes getBoxid() {
         return boxid;
     }
 
-    public void setBoxid(String boxid) {
+    public void setBoxid(Boxes boxid) {
         this.boxid = boxid;
     }
 

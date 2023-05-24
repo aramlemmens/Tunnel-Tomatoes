@@ -49,7 +49,7 @@ public class BoxesController {
     @RequestMapping(value="/Boxestest", method = RequestMethod.GET)
     public String sensorList(Model model) {
         model.addAttribute("list", boxesRepository.findAll());
-        model.addAttribute("list", sensorRepository.findAll());
+//        model.addAttribute("list", sensorRepository.findAll());
         return "thymeleafTemplate";
     }
 

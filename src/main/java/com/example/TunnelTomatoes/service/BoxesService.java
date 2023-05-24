@@ -4,5 +4,5 @@ import com.example.TunnelTomatoes.model.Boxes;
 import java.util.List;
 
 public interface BoxesService {
-    List<Boxes> findallboxes();
+    List<Boxes> findAll();
 }
