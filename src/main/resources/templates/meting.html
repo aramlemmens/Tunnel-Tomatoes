@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.rog">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Line Graph</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="index.html">Tunnel Tomatoes</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/meting">Graph</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Hallotest">setpoints</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--<div th:text="${boxid}">-->
+<!--      <table class="table table-bordered" width="100%" id="boxesdataTable" cellspacing="0">-->
+<!--          <thead>-->
+<!--          <tr>-->
+<!--              <th>boxid</th>-->
+<!--              <th>plaats</th>-->
+<!--          </tr>-->
+<!--          </thead>-->
+<!--          <tbody>-->
+<!--          <tr th:each="boxes : ${list}">-->
+<!--              <td th:text="${boxes.boxid}"></td>-->
+<!--              <td th:text="${boxes.plaats}"></td>-->
+<!--          </tr>-->
+<!--          </tbody>-->
+<!--      </table>-->
+<!--</div>-->
+
+<!--<div th:Sensortext="${sensorid}">-->
+<!--<table class="table table-bordered" width="100%" id="sensordataTable" cellspacing="0">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>sensorid</th>-->
+<!--        <th>boxid</th>-->
+<!--        <th>soort</th>-->
+<!--        <th>eenheid</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="sensor : ${list}">-->
+<!--        <td th:text="${sensor.sensorid}"></td>-->
+<!--        <td th:text="${sensor.boxid}"></td>-->
+<!--        <td th:text="${sensor.soort}"></td>-->
+<!--        <td th:text="${sensor.eenheid}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</div>-->
+<!--<div th:Sensortext="${meting}">-->
+<!--<table class="table table-bordered" width="100%" id="metingdataTable" cellspacing="0">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>boxid</th>-->
+<!--        <th>sensorid</th>-->
+<!--        <th>tijd</th>-->
+<!--        <th>waarde</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="meting : ${meting}">-->
+<!--        <td th:text="${meting.boxid}"></td>-->
+<!--        <td th:text="${meting.sensorid}"></td>-->
+<!--        <td th:text="${meting.tijd}"></td>-->
+<!--        <td th:text="${meting.waarde}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--</div>-->
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search" title="Type in a name">
+
+<table id="myTable" class="table table-bordered">
+    <thead>
+    <tr>
+        <th>boxid</th>
+        <th>sensorid</th>
+        <th>tijd</th>
+        <th>waarde</th>
+        <th>soort</th>
+        <th>eenheid</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="meting : ${meting}">
+        <td th:text="${meting.boxid}"></td>
+        <td th:text="${meting.sensorid}"></td>
+        <td th:text="${meting.tijd}"></td>
+        <td th:text="${meting.waarde}"></td>
+        <tr th:each="meting : ${sensor}">
+            <td th:text="${sensor.soort}"></td>
+            <td th:text="${sensor.eenheid}"></td>
+        </tr>
+    </tr>
+    </tbody>
+</table>
+<!--         meting pagination-->
+<!--<nav aria-label="Pagination" th:if="${meting.totalPages gt 0}">-->
+<!--    <ul class="pagination justify-content-center font-weight-medium">-->
+<!--        <li class="page-item" th:classappend="${meting.number eq 0} ? 'disabled'">-->
+<!--            <a class="page-link svg-icon"-->
+<!--               th:href="@{/admin/meting?page={id}(id=${meting.number lt 2 ? 1 : meting.number})}"-->
+<!--               aria-label="Previous"-->
+<!--               title="Previous Page" rel="tooltip">-->
+<!--                <span aria-hidden="true" data-feather="chevrons-left" width="20" height="20"></span>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        <li class="page-item" th:classappend="${i eq meting.number + 1} ? 'active'"-->
+<!--            th:each="i : ${#numbers.sequence( meting.number + 1, meting.totalPages > 10 + meting.number ? meting.number + 10 : meting.totalPages, 1)}">-->
+<!--            <a class="page-link" th:href="@{/admin/meting?page={id}(id=${i})}" th:text="${i}"-->
+<!--               th:title="${'Page '+ i}"-->
+<!--               rel="tooltip"></a>-->
+<!--        </li>-->
+<!--        <li class="page-item disabled" th:if="${meting.number + 10 < meting.totalPages}">-->
+<!--            <a class="page-link svg-icon" href="#">-->
+<!--                <span data-feather="more-horizontal" width="20" height="20"></span>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        <li class="page-item" th:classappend="${meting.number + 1 eq meting.totalPages} ? 'disabled'">-->
+<!--            <a class="page-link svg-icon" th:href="@{/admin/meting?page={id}(id=${meting.number + 2})}"-->
+<!--               aria-label="Next"-->
+<!--               title="Next Page" rel="tooltip">-->
+<!--                <span aria-hidden="true" data-feather="chevrons-right" width="20" height="20"></span>-->
+<!--            </a>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--</nav>-->
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[3];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
+

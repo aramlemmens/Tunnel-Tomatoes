@@ -8,20 +8,19 @@ import java.sql.Date;
 public class Metingen {
 
 
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "boxid", referencedColumnName = "boxid")
+    private String boxid;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "sensorid", referencedColumnName = "sensorid")
+    private int sensorid;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Date tijd;
-    @ManyToOne
-    @JoinColumn(name = "boxid")
-    private Boxes boxid;
-    @ManyToOne
-    @JoinColumn(name = "sensorid")
-    private Sensoren sensorid;
-
     private int waarde;
 
-    public Metingen(Boxes boxid, Sensoren sensorid, Date tijd, int waarde){
-//        this.setBoxid(boxid);
+    public Metingen(String boxid, int sensorid, Date tijd, int waarde){
+        this.setBoxid(boxid);
         this.setSensorid(sensorid);
         this.setTijd(tijd);
         this.setWaarde(waarde);
@@ -31,19 +30,19 @@ public class Metingen {
 
     }
 
-    public Boxes getBoxid() {
+    public String getBoxid() {
         return boxid;
     }
 
-    public void setBoxid(Boxes boxid) {
+    public void setBoxid(String boxid) {
         this.boxid = boxid;
     }
 
-    public Sensoren getSensorid() {
+    public int getSensorid() {
         return sensorid;
     }
 
-    public void setSensorid(Sensoren sensorid) {
+    public void setSensorid(int sensorid) {
         this.sensorid = sensorid;
     }
 

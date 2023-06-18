@@ -7,13 +7,12 @@ public class Sensoren {
 
     @Id
     @Column(name = "sensorid")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sensorid;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "boxid", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "boxid", referencedColumnName = "boxid")
     private Boxes boxid;
-
     private String soort;
     private String eenheid;
 
