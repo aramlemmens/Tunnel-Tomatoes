@@ -2,45 +2,48 @@ package com.example.TunnelTomatoes.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Set;
 
 
 @Entity
-@Table(name = "Boxes")
+@Table(name = "boxes")
 public class Boxes {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String boxid;
-    private String plaats;
+    @Column(name="boxid")
+    private String Boxid;
+    @Column(name="plaats")
+    private String Plaats;
 
-//    @OneToMany(mappedBy = "box", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    private Set<Sensoren> boxes;
-//
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "Boxes")
-//    private List<Sensoren> sensoren;
+    @OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+    @JoinColumn(name="boxid")
+    private List<Sensoren> sensorens;
+    @OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+    @JoinColumn(name="boxid")
+    private List<Metingen> metingens;
 
     public Boxes(){
 
     }
-    public Boxes(String boxid, String plaats){
-        this.setBoxid(boxid);
-        this.setPlaats(plaats);
+    public Boxes(String Boxid, String Plaats){
+        this.setBoxid(Boxid);
+        this.setPlaats(Plaats);
     }
 
     public String getBoxid() {
-        return boxid;
+        return Boxid;
     }
 
-    public void setBoxid(String boxid) {
-        this.boxid = boxid;
+    public void setBoxid(String Boxid) {
+        this.Boxid = Boxid;
     }
 
     public String getPlaats() {
-        return plaats;
+        return Plaats;
     }
 
-    public void setPlaats(String plaats) {
-        this.plaats = plaats;
+    public void setPlaats(String Plaats) {
+        this.Plaats = Plaats;
     }
 }

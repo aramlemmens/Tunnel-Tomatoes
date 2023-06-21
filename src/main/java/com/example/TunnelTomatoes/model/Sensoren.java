@@ -1,26 +1,31 @@
 package com.example.TunnelTomatoes.model;
 
 import jakarta.persistence.*;
+
+import java.util.List;
+
 @Entity
-@Table(name = "Sensoren")
+@Table(name = "sensoren")
 public class Sensoren {
 
     @Id
     @Column(name = "sensorid")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int sensorid;
+    private int Sensorid;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "boxid", referencedColumnName = "boxid")
-    private Boxes boxid;
-    private String soort;
-    private String eenheid;
-
-    public Sensoren(int sensorid, Boxes boxid, String soort, String eenheid) {
-        this.setSensorid(sensorid);
-        this.setBoxid(boxid);
-        this.setSoort(soort);
-        this.setEenheid(eenheid);
+    @Column(name="boxid")
+    private String Boxid;
+    @Column(name = "soort")
+    private String Soort;
+    @Column(name = "eenheid")
+    private String Eenheid;
+    @OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+    @JoinColumn(name="sensorid")
+    private List<Metingen> metingens;
+    public Sensoren(int Sensorid, String Boxid, String Soort, String Eenheid) {
+        this.setSensorid(Sensorid);
+        this.setBoxid(Boxid);
+        this.setSoort(Soort);
+        this.setEenheid(Eenheid);
     }
 
     public Sensoren() {
@@ -28,34 +33,34 @@ public class Sensoren {
     }
 
     public int getSensorid() {
-        return sensorid;
+        return Sensorid;
     }
 
-    public void setSensorid(int sensorid) {
-        this.sensorid = sensorid;
+    public void setSensorid(int Sensorid) {
+        this.Sensorid = Sensorid;
     }
 
-    public Boxes getBoxid() {
-        return boxid;
+    public String getBoxid() {
+        return Boxid;
     }
 
-    public void setBoxid(Boxes boxid) {
-        this.boxid = boxid;
+    public void setBoxid(String Boxid) {
+        this.Boxid = Boxid;
     }
 
     public String getSoort() {
-        return soort;
+        return Soort;
     }
 
-    public void setSoort(String soort) {
-        this.soort = soort;
+    public void setSoort(String Soort) {
+        this.Soort = Soort;
     }
 
     public String getEenheid() {
-        return eenheid;
+        return Eenheid;
     }
 
-    public void setEenheid(String eenheid) {
-        this.eenheid = eenheid;
+    public void setEenheid(String Eenheid) {
+        this.Eenheid = Eenheid;
     }
 }

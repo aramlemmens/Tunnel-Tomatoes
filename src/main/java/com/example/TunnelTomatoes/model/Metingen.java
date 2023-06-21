@@ -7,58 +7,63 @@ import java.sql.Date;
 @Entity
 public class Metingen {
 
-
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "boxid", referencedColumnName = "boxid")
-    private String boxid;
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "sensorid", referencedColumnName = "sensorid")
-    private int sensorid;
+    @ManyToOne
+    @JoinColumn(name="boxid", nullable=false)
+    private Boxes Boxid;
+//    @Column(name="boxid")
+//    private String Boxid;
+    @ManyToOne
+    @JoinColumn(name="sensorid", nullable=false)
+    private Sensoren Sensorid;
+//    @Column(name = "sensorid")
+//    private int Sensorid;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Date tijd;
-    private int waarde;
+    @Column(name = "tijd")
+    private Date Tijd;
+    @Column(name = "waarde")
+    private int Waarde;
 
-    public Metingen(String boxid, int sensorid, Date tijd, int waarde){
-        this.setBoxid(boxid);
-        this.setSensorid(sensorid);
-        this.setTijd(tijd);
-        this.setWaarde(waarde);
+    public Metingen(Boxes Boxid, Sensoren Sensorid, Date Tijd, int Waarde){
+        this.setBoxid(Boxid);
+        this.setSensorid(Sensorid);
+        this.setTijd(Tijd);
+        this.setWaarde(Waarde);
     }
 
     public Metingen() {
 
     }
 
-    public String getBoxid() {
-        return boxid;
+    public Boxes getBoxid() {
+        return Boxid;
     }
 
-    public void setBoxid(String boxid) {
-        this.boxid = boxid;
+    public void setBoxid(Boxes Boxid) {
+        this.Boxid = Boxid;
     }
 
-    public int getSensorid() {
-        return sensorid;
+    public Sensoren getSensorid() {
+        return Sensorid;
     }
 
-    public void setSensorid(int sensorid) {
-        this.sensorid = sensorid;
+    public void setSensorid(Sensoren Sensorid) {
+        this.Sensorid = Sensorid;
     }
 
     public Date getTijd() {
-        return tijd;
+        return Tijd;
     }
 
-    public void setTijd(Date tijd) {
-        this.tijd = tijd;
+    public void setTijd(Date Tijd) {
+        this.Tijd = Tijd;
     }
 
     public int getWaarde() {
-        return waarde;
+        return Waarde;
     }
 
-    public void setWaarde(int waarde) {
-        this.waarde = waarde;
+    public void setWaarde(int Waarde) {
+        this.Waarde = Waarde;
     }
 }
